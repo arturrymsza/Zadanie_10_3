@@ -1,0 +1,63 @@
+body {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.slider {
+  width: 400px;
+  height: 300px;
+  border: 2px;
+  border-style: solid;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1; }
+  .slider ul {
+    width: 2000px;
+    height: 300px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute; }
+    .slider ul li, .slider ul .carousel_nav .current, .carousel_nav .slider ul .current {
+      width: 400px;
+      height: 300px;
+      list-style: none;
+      display: inline-block;
+      margin: 0; }
+
+.arrows {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 3; }
+  .arrows button {
+    background-color: transparent;
+    border: none; }
+    .arrows button .fa {
+      font-size: 20px;
+      color: white;
+      cursor: pointer; }
+
+.carousel_nav li, .carousel_nav .current {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: white;
+  cursor: pointer;
+  margin-left: 5px; }
+.carousel_nav .current {
+  background: red; }
