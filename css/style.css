@@ -11,53 +11,61 @@ body {
       -ms-flex-align: center;
           align-items: center; }
 
-.slider {
+#carousel {
   width: 400px;
   height: 300px;
   border: 2px;
   border-style: solid;
   overflow: hidden;
-  position: absolute;
-  z-index: -1; }
-  .slider ul {
+  position: relative; }
+  #carousel .slides {
     width: 2000px;
     height: 300px;
     list-style: none;
     padding: 0;
     margin: 0;
-    position: absolute; }
-    .slider ul li, .slider ul .carousel_nav .current, .carousel_nav .slider ul .current {
+    font-size: 0; }
+    #carousel .slides li {
       width: 400px;
       height: 300px;
       list-style: none;
       display: inline-block;
       margin: 0; }
 
-.arrows {
+#arrowLeft,
+#arrowRight {
+  background-color: transparent;
+  border: none;
   position: absolute;
-  width: 400px;
-  height: 300px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  z-index: 3; }
-  .arrows button {
-    background-color: transparent;
-    border: none; }
-    .arrows button .fa {
-      font-size: 20px;
-      color: white;
-      cursor: pointer; }
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+  #arrowLeft .fa,
+  #arrowRight .fa {
+    font-size: 20px;
+    color: white;
+    cursor: pointer; }
 
-.carousel_nav li, .carousel_nav .current {
+#arrowLeft {
+  left: 15px; }
+
+#arrowRight {
+  right: 15px; }
+
+.bullets {
+  position: absolute;
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: white;
-  cursor: pointer;
-  margin-left: 5px; }
-.carousel_nav .current {
-  background: red; }
+  bottom: 25px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center; }
+  .bullets .bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: white;
+    cursor: pointer;
+    margin-left: 5px; }
+  .bullets .current {
+    background: red; }
