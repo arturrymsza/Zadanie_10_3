@@ -6,21 +6,20 @@ body {
 	align-items: center;
 }
 
-.slider {
+#carousel {
 	width: 400px;
 	height: 300px;
 	border: 2px;
 	border-style: solid;
 	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-	ul {
+	position: relative;
+	.slides {
 		width: 2000px;
 		height: 300px;
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		position: absolute;
+		font-size: 0;
 		li {
 			width: 400px;
 			height: 300px;
@@ -31,26 +30,36 @@ body {
 	}
 }
 
-.arrows {
+#arrowLeft,
+#arrowRight {	
+	background-color: transparent;
+	border: none;
 	position: absolute;
-	width: 400px;
-	height: 300px;
-	display: flex;
-	justify-content: space-between;
-	z-index: 3;
-	button {
-		background-color: transparent;
-		border: none;
-		.fa {
-			font-size: 20px;
-			color: white;
-			cursor: pointer;
-		}
+	top: 50%;
+	transform: translateY(-50%);
+	.fa {
+		font-size: 20px;
+		color: white;
+		cursor: pointer;
 	}
 }
 
-.carousel_nav {
-	li {
+#arrowLeft {
+	left: 15px;
+}
+
+#arrowRight {
+	right: 15px;
+}
+
+.bullets {
+	position: absolute;
+	display: inline-block;
+	bottom: 25px;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	.bullet {
 		display: inline-block;
 		width: 10px;
 		height: 10px;
@@ -59,7 +68,6 @@ body {
 		margin-left: 5px;
 	}
 	.current {
-		@extend li;
 		background: red;
 	}
 }
