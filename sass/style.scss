@@ -6,7 +6,7 @@ body {
 	align-items: center;
 }
 
-#carousel {
+.slider {
 	width: 400px;
 	height: 300px;
 	border: 2px;
@@ -30,8 +30,8 @@ body {
 	}
 }
 
-#arrowLeft,
-#arrowRight {	
+.moveLeft,
+.moveRight {	
 	background-color: transparent;
 	border: none;
 	position: absolute;
@@ -44,11 +44,11 @@ body {
 	}
 }
 
-#arrowLeft {
+.moveLeft {
 	left: 15px;
 }
 
-#arrowRight {
+.moveRight {
 	right: 15px;
 }
 

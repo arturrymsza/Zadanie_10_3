@@ -7,6 +7,7 @@ $(function() {
 		current = 1,
 		interval;
 
+
 	var CONSTANTS = Object.freeze({
 		DIRECTION_LEFT: -1,
 		DIRECTION_RIGHT: 1
@@ -40,11 +41,36 @@ $(function() {
 			var firstItem = carouselList.find("li:first"),
 				lastItem = carouselList.find("li:last");
 
+			changeBullet(CONSTANTS.DIRECTION_RIGHT);
+
 			carouselList.animate({'marginLeft':-400}, 500, function(){
 				lastItem.after(firstItem);
 				carouselList.css({marginLeft:0});				
 			});
 		}, 3000);
+	}
+
+	function moveTo () {
+		var bulletIndex = $('.bullet').index(),
+			currentIndex = $('.bullet.current').index(),
+			moving = $(this).length - currentIndex + bulletIndex + 1;
+
+		$bullet.on('click', function() {
+			var firstItem = carouselList.find("li:first"),
+				lastItem = carouselList.find("li:last"),
+				i = 1;
+			while (i <= moving) {
+
+				changeBullet(CONSTANTS.DIRECTION_RIGHT);
+
+				carouselList.animate({'marginLeft':-400}, 500, function(){
+					lastItem.after(firstItem);
+					carouselList.css({marginLeft:0});
+				});
+
+				i++;
+			}
+		});
 	}
 
 	arrowLeft.on('click', function() {
@@ -55,13 +81,15 @@ $(function() {
 
 		firstItem.before(lastItem);	
 		carouselList.css({marginLeft: -400});
-		carouselList.animate({'marginLeft': 0}, 500);
+		if (!carouselList.is(':animated')) {
+			carouselList.animate({'marginLeft': 0}, 500);
+		}
 	});
 
 	arrowRight.on('click', function() {
 		var firstItem = carouselList.find("li:first"),
 			lastItem = carouselList.find("li:last");
-		
+
 		changeBullet(CONSTANTS.DIRECTION_RIGHT);
 
 		carouselList.animate({'marginLeft':-400}, 500, function(){
@@ -82,4 +110,5 @@ $(function() {
 	);
 
 	interval = start();
+	moveTo();
 });
