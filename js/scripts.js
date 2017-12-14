@@ -7,7 +7,6 @@ $(function() {
 		current = 1,
 		interval;
 
-
 	var CONSTANTS = Object.freeze({
 		DIRECTION_LEFT: -1,
 		DIRECTION_RIGHT: 1
@@ -51,27 +50,33 @@ $(function() {
 	}
 
 	function moveTo () {
-		var bulletIndex = $('.bullet').index(),
+		var bulletIndex = $(this).index(),
 			currentIndex = $('.bullet.current').index(),
-			moving = $(this).length - currentIndex + bulletIndex + 1;
+			firstItem = carouselList.find("li:first"),
+			lastItem = carouselList.find("li:last"),
+			moving;
 
-		$bullet.on('click', function() {
-			var firstItem = carouselList.find("li:first"),
-				lastItem = carouselList.find("li:last"),
-				i = 1;
-			while (i <= moving) {
+		if (currentIndex < bulletIndex) {
+			moving = bulletIndex - currentIndex;
+		} else {
+			moving = ($bullet.length - currentIndex) + bulletIndex;
+		}
+
+		console.log(bulletIndex, currentIndex, moving);
+
+		var i = 1;
+		while (i <= moving) {
 
 				changeBullet(CONSTANTS.DIRECTION_RIGHT);
-
+		
 				carouselList.animate({'marginLeft':-400}, 500, function(){
 					lastItem.after(firstItem);
 					carouselList.css({marginLeft:0});
-				});
-
-				i++;
-			}
-		});
-	}
+				});	
+			
+			i++;
+		}
+	};
 
 	arrowLeft.on('click', function() {
 		var firstItem = carouselList.find("li:first"),
@@ -98,6 +103,7 @@ $(function() {
 		});
 	});
 
+	
 	$("#carousel").hover(
 		function() {
 			console.log('s');
@@ -110,5 +116,6 @@ $(function() {
 	);
 
 	interval = start();
-	moveTo();
+	$bullet.on('click', moveTo);
+
 });
