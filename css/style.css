@@ -1,0 +1,71 @@
+body {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.slider {
+  width: 400px;
+  height: 300px;
+  border: 2px;
+  border-style: solid;
+  overflow: hidden;
+  position: relative; }
+  .slider .slides {
+    width: 2000px;
+    height: 300px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0; }
+    .slider .slides li {
+      width: 400px;
+      height: 300px;
+      list-style: none;
+      display: inline-block;
+      margin: 0; }
+
+.moveLeft,
+.moveRight {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%); }
+  .moveLeft .fa,
+  .moveRight .fa {
+    font-size: 20px;
+    color: white;
+    cursor: pointer; }
+
+.moveLeft {
+  left: 15px; }
+
+.moveRight {
+  right: 15px; }
+
+.bullets {
+  position: absolute;
+  display: inline-block;
+  bottom: 25px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center; }
+  .bullets .bullet {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: white;
+    cursor: pointer;
+    margin-left: 5px; }
+  .bullets .current {
+    background: red; }
